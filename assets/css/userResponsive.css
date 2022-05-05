@@ -1,0 +1,61 @@
+/* Small phone */
+
+@media screen and (min-width:320px) {
+    .product--wrapper {
+        padding-bottom: 40%;
+    }
+    .footer-col {
+        width: 100%;
+    }
+}
+
+
+/* same with mobile phone */
+
+@media (min-width:480px) {
+    .product--wrapper {
+        padding-bottom: 30%;
+    }
+    .footer-col {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .product--wrapper {
+        padding-bottom: 42%;
+    }
+    .product__detail {
+        font-size: 14px;
+    }
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Mobile & Tablet */
+
+@media (max-width: 63.9375em) {
+    /* .nav__item {
+        display: none;
+    } */
+}
+
+
+/* Tablet only */
+
+@media (min-width: 46.25em) and (max-width: 63.9375em) {}
+
+
+/* Mobile phone only */
+
+@media (max-width: 46.1875em) {
+    .item-search-bar {
+        width: 115px;
+    }
+    .nav__menu-dropdown {
+        left: 4%;
+    }
+}

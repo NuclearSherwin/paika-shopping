@@ -1,0 +1,143 @@
+:root {
+    --background-color: floralwhite;
+    --background-color-1: #F3FCF4;
+    --theme-color: #20BDBE;
+    --dark-green: #012D2C;
+    --white: #FFFFFF;
+    --yellow: #FAED25;
+    --bright-green: #65CCB7;
+    --background-img-color: rgb(235, 235, 237);
+    --box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    --sign-up-background: #f6f5f7;
+}
+
+
+/* body {
+    background-image: url(../img/registerImgs/background-5.jpg);
+    background-size: cover;
+} */
+
+body {
+    /* background-color: var(--sign-up-background); */
+    background-image: url('../img/registerImgs/background-gradient.jpg');
+    background-size: cover;
+}
+
+.form-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-container form {
+    width: 365px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 50px;
+    background-color: #FFFFFF;
+    justify-content: center;
+    /* display: flex; */
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%)
+}
+
+.form__tittle {
+    padding: 25px 0 5px 0;
+    font-size: 24px;
+    /* text-transform: uppercase; */
+    margin-bottom: 30px;
+    color: black;
+    border-bottom: 5px solid var(--bright-green);
+}
+
+.form__box {
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border: none;
+    outline: none;
+    background-color: #eee;
+}
+
+input[type="text"] {
+    font-size: 14px;
+}
+
+
+/* .form__box:focus {
+    color: black;
+} */
+
+
+/* 
+::-webkit-input-placeholder {
+    color: black;
+} */
+
+
+/* input[type="text"] {
+    color: black;
+} */
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 14px;
+}
+
+.message {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 10px;
+    background-color: #FECD45;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+.form__btn:hover {
+    background-color: #65CCB7;
+    color: whitesmoke;
+}
+
+.form__btn {
+    background: none;
+    border-radius: 20px;
+    border: 2px solid var(--bright-green);
+    margin: 35px 0 0 0;
+    transition: 0.15s ease-out;
+    padding: 12px 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
+
+.option-btn {
+    background-color: orange;
+}
+
+.delete-btn {
+    background-color: rgb(255, 59, 59);
+}
+
+.form-container form p {
+    margin: 18px 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.form-container form p a {
+    color: var(--theme-color);
+    text-decoration: none;
+}
+
+.form-container form p a:hover {
+    text-decoration: underline;
+}
