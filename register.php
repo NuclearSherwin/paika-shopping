@@ -1,19 +1,17 @@
 <?php 
     include 'connect.php';
-    
 if(isset($_POST['submit'])) {
-
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $phoneNum = mysqli_real_escape_string($conn, $_POST['phoneNum']);
+        $address = mysqli_real_escape_string($conn, $_POST['address']);
         $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
         $cPass = mysqli_real_escape_string($conn, md5($_POST['cPassword']));
-
-        $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass'") or die('query failed');
-
-        if(mysqli_num_rows($select) > 0) {
-            $message[] = 'user already exits!';
+        $findUser = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND phone_num = '$phoneNum'") or die('query failed');
+        if(mysqli_num_rows($findUser) > 0) {
+            $message[] = 'User already exits!';
         }else {
-            mysqli_query($conn, "INSERT INTO `user_form`(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
+            mysqli_query($conn, "INSERT INTO `user_form`(name, email, phone_num, address, password) VALUES('$name', '$email', '$phoneNum', '$address', '$pass')") or die('query failed');
             echo "<script>alert('Register successfully! Welcome to Paika!');</script>";
             header('location:login.php');
             $message[] = 'Register successfully! Welcome to Paika!';
@@ -54,6 +52,8 @@ if(isset($_POST['submit'])) {
                     <h3 class="form__tittle">Register now</h3>
                         <input type="text" name="name" required placeholder="Username" class="form__box">
                         <input type="email" name="email" required placeholder="Email" class="form__box">
+                        <input type="tel" name="phoneNum" required placeholder="Phone number" class="form__box">
+                        <input type="text" name="address" required placeholder="address" class="form__box">
                         <input type="password" name="password" required placeholder="Password" class="form__box"> 
                         <input type="password" name="cPassword" required placeholder="Confirm password" class="form__box">
                         <input type="submit" name="submit" class="form__btn" value="register now">

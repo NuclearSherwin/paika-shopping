@@ -6,7 +6,8 @@
 
     if(!isset($user_id))
         header('location:login.php');
-    // log out 
+
+    // for log out 
     if(isset($_GET['logout'])){
         unset($user_id);
         session_destroy();
@@ -105,6 +106,7 @@
         <!-- Nav ends -->
 
         <div class="container">
+            <div class="user__wrapper">
             <div class="user__profile">
                 <?php 
                     $select_user = mysqli_query($conn, "SELECT * FROM `user_form` WHERE id = '$user_id'")
@@ -113,14 +115,42 @@
                         $fetch_user = mysqli_fetch_assoc($select_user);
                     };
                 ?>
-                    
+                <div class="user__profile-head">
+                    <div class="user__profile-logo">
+                        <img src="./assets/img/userImgs/Phong.jpg" alt="user-picture">
+                    </div>
+                    <div class="user__profile-name">
+                        <h4><?php echo $fetch_user['name'];?></h4>
+                        <p><?php echo $fetch_user['email'];?></p>
+                    </div>
+                </div>
+                <div class="user_profile-socials">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100040740782500">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://github.com/NuclearSherwin">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCSoPdj8kTA8FHtRzRVoQ3Sg">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
                 <div class="user__profile-information">
-                    <p>Username: <span><?php echo $fetch_user['name']?></span></p>
-                    <p>Email: <span><?php echo $fetch_user['email']?></span></p>
+                    <p> 
+                        <span><i class="fa-solid fa-phone"></i></span>
+                        <?php echo $fetch_user['phone_num'];?> 
+                    </p>
+                    <p> 
+                        <span><i class="fa-solid fa-location-dot"></i></span>
+                        <?php echo $fetch_user['address'];?> 
+                    </p>
                 </div>
-                <div class="user__profile-option">
-                    <a href="user.php?logout=<?php echo $user_id?>;" onclick="return confirm('Are you sure want to logout?');" class="logout-btn">Log out</a>
+                <div class="user__profile-options">
+                    <a class="logout-btn" href="user.php?logout=<?php echo $user_id; ?>" 
+                    onclick="return confirm('Are you sure you want to logout?');">Logout</a>
                 </div>
+            </div>
             </div>
         </div>
 

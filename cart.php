@@ -20,7 +20,7 @@
         $remove_id = $_GET['remove'];
         mysqli_query($conn, "DELETE FROM `cart` WHERE id = '$remove_id'") or die('query failed');
         header('location:cart.php');
-    }
+    } 
 
     // Delete all products in cart
     if(isset($_GET['delete_all'])){
