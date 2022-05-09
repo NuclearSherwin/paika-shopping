@@ -346,7 +346,7 @@ ul {
     position: absolute;
     left: 0;
     bottom: -10px;
-    background-color: #e91e63;
+    background-color: var(--bright-green);
     height: 2px;
     box-sizing: border-box;
     width: 50px;

@@ -7,7 +7,6 @@
     if(!isset($user_id))
         header('location:login.php');
     // for products
-
     if(isset($_POST['addToCart'])){
 
         $pName = $_POST['pName'];
@@ -15,15 +14,17 @@
         $pImage = $_POST['pImage'];
         $pQuantity = $_POST['pQuantity'];
     
-        $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
+        $select_cart = mysqli_query($conn, "SELECT * FROM `cart` 
+        WHERE name = '$product_name' 
+        AND user_id = '$user_id'") or die('query failed');
 
         if(mysqli_num_rows($select_cart) > 0){
             $message[] = 'product already added to cart!';
         }else{
-            mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, image, quantity) VALUES('$user_id', '$pName', '$pPrice', '$pImage', '$pQuantity')") or die('query failed');
+            mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, image, quantity) 
+            VALUES('$user_id', '$pName', '$pPrice', '$pImage', '$pQuantity')") or die('query failed');
             $message[] = 'product added to cart!';
         }
-        
     }; 
 
     
@@ -132,32 +133,6 @@
 
         <!-- Main begins -->
         <div class="container">
-            <!-- <div class="row">
-                <div class="slider tittle col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <div class="slider__images">
-                        <div class="slider__img-container">
-                            <div class="slider__img-number">1/4</div>
-                            <img src="./assets/img/homeImgs/fancy-01y.png" alt="">
-                            <div class="slider__img-text"></div>
-                        </div>
-                        <div class="slider__img-container">
-                            <div class="slider__img-number">2/4</div>
-                            <img src="./assets/img/homeImgs/plaza.jpg" alt="">
-                            <div class="slider__img-text"></div>
-                        </div>
-                        <div class="slider__img-container">
-                            <div class="slider__img-number">3/4</div>
-                            <img src="./assets/img/homeImgs/ls-slider-181-slide-1.jpg" alt="">
-                            <div class="slider__img-text"></div>
-                        </div>
-                        <div class="slider__img-container">
-                            <div class="slider__img-number">4/4</div>
-                            <img src="./assets/img/homeImgs/40%sale.png" alt="40%sale">
-                            <div class="slider__img-text"></div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="slider col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <div class="slide">
@@ -179,7 +154,7 @@
                     <div class="lines">
                         <div class="line" onclick="currentSlide(1)"></div>
                         <div class="line" onclick="currentSlide(2)"></div>
-                        <div class="line" onclick="currentSlide(3)"></div>  
+                        <div class="line" onclick="currentSlide(3)"></div> 
                         <div class="line" onclick="currentSlide(4)"></div>  
                     </div>
                 </div>
@@ -224,7 +199,8 @@
                         </div>
                     </div> -->
                     <?php 
-                        $select_product = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed!');
+                        $select_product = mysqli_query($conn, "SELECT * FROM `products`") 
+                        or die('query failed!');
                         if(mysqli_num_rows($select_product) > 0) {
                             while($fetch_product = mysqli_fetch_assoc($select_product)){
                     ?>
@@ -249,7 +225,7 @@
                                             </div>
                                                 <div class="product__detail-quantity">
                                                     <input type="hidden" name="pPrice" value = "<?php echo $fetch_product['product_price']; ?> ">
-                                                    <input type="number" min="1" name="pQuantity" value = "1">
+                                                    <input type="number" min="1" name="pQuantity" value = "1" class="product__detail-quantity-input">
                                                     <p>Available    : <?php echo $fetch_product['product_quantity']; ?></p>
                                                 </div>
                                     </div>
@@ -295,7 +271,7 @@
                                             </div>
                                             <div class="product__detail-quantity">
                                                     <input type="hidden" name="pPrice" value = "<?php echo $fetch_product['product_price']; ?> ">
-                                                    <input type="number" min="1" name="pQuantity" value = "1">
+                                                    <input type="number" min="1" name="pQuantity" value = "1" class="product__detail-quantity-input">
                                                     <p>Available    : <?php echo $fetch_product['product_quantity']; ?></p>
                                                 </div>
                                     </div>

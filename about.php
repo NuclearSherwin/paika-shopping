@@ -98,7 +98,9 @@
             <div class="row about__story">
                 <div class="about__story-tittle col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <h1>Our Story</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti commodi pariatur temporibus perspiciatis ipsum, dolorum nesciunt illum impedit perferendis placeat voluptas modi nihil facere esse cumque possimus aliquid optio necessitatibus.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti commodi pariatur temporibus perspiciatis ipsum, 
+                        dolorum nesciunt illum impedit perferendis placeat voluptas modi nihil facere 
+                        esse cumque possimus aliquid optio necessitatibus.</p>
                 </div>
                 <div class="about__story-img col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <img src="./assets/img/aboutImgs/Slide50.png" alt="">
@@ -107,7 +109,9 @@
             <div class="row about__story">
                 <div class="about__story-tittle col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <h1>Journey start from</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti commodi pariatur temporibus perspiciatis ipsum, dolorum nesciunt illum impedit perferendis placeat voluptas modi nihil facere esse cumque possimus aliquid optio necessitatibus.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti commodi 
+                        pariatur temporibus perspiciatis ipsum, dolorum nesciunt illum impedit perferendis placeat voluptas 
+                        modi nihil facere esse cumque possimus aliquid optio necessitatibus.</p>
                 </div>
                 <div class="about__story-img col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <img src="./assets/img/aboutImgs/newarrival.png" alt="">

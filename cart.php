@@ -136,7 +136,7 @@
                                 <p style="font-weight: bold; margin: 1px 0;"><?php echo $fetch_cart['name']; ?></p>
                                 <p style="font-size: 14px; margin: 10px 0;">Price: $<?php echo $fetch_cart['price']; ?></p>
                                 <p style="font-size: 12px;">option</p>
-                                <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
+                                <input type="number" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>" class="product-info-quantity">
                                 <p style="font-size: 13px"> Current quantity: <?php echo $fetch_cart['quantity']; ?></p>
                             </div>
                             <div class="table__border-options col-xl-3">
