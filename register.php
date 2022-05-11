@@ -40,7 +40,7 @@ if(isset($_POST['submit'])) {
 <body>
     <div class="wrapper">
         <div class="container">
-        <?php
+        <?php 
             if(isset($message)) {
                 foreach($message as $message) {
                     echo '<div class="message" onclick="this.remove();">'.$message.'</div>';

@@ -23,7 +23,7 @@
         }else{
             mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, image, quantity) 
             VALUES('$user_id', '$pName', '$pPrice', '$pImage', '$pQuantity')") or die('query failed');
-            $message[] = 'product added to cart!';
+            $message[] = 'product added to your cart!';
         }
     }; 
 
@@ -226,7 +226,7 @@
                                                 <div class="product__detail-quantity">
                                                     <input type="hidden" name="pPrice" value = "<?php echo $fetch_product['product_price']; ?> ">
                                                     <input type="number" min="1" name="pQuantity" value = "1" class="product__detail-quantity-input">
-                                                    <p>Available    : <?php echo $fetch_product['product_quantity']; ?></p>
+                                                    <!-- <p>Available    : <?php echo $fetch_product['product_quantity']; ?></p> -->
                                                 </div>
                                     </div>
                                     <div class="product__detail-order">
@@ -272,7 +272,7 @@
                                             <div class="product__detail-quantity">
                                                     <input type="hidden" name="pPrice" value = "<?php echo $fetch_product['product_price']; ?> ">
                                                     <input type="number" min="1" name="pQuantity" value = "1" class="product__detail-quantity-input">
-                                                    <p>Available    : <?php echo $fetch_product['product_quantity']; ?></p>
+                                                    <!-- <p>Available    : <?php echo $fetch_product['product_quantity']; ?></p> -->
                                                 </div>
                                     </div>
                                     <div class="product__detail-order">
