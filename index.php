@@ -1,12 +1,15 @@
 <?php
-    // for user register and login part
+    // for user register and login session
     include 'connect.php';
     session_start();
     $user_id = $_SESSION['user_id'];
 
+    //check whether if user_id exits
     if(!isset($user_id))
         header('location:login.php');
-    // for products
+
+
+    // this will add product into (cart) - to mysql server
     if(isset($_POST['addToCart'])){
 
         $pName = $_POST['pName'];
@@ -24,6 +27,8 @@
             mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, image, quantity) 
             VALUES('$user_id', '$pName', '$pPrice', '$pImage', '$pQuantity')") or die('query failed');
             $message[] = 'product added to your cart!';
+            //move to cart -->
+            header('location:cart.php');
         }
     }; 
 
@@ -44,8 +49,9 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://kit.fontawesome.com/823e15a3c8.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/823e15a3c8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 <body>
@@ -70,7 +76,7 @@
                     <a href="about.php" class="nav__item-link"> <span>About</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="" class="nav__item-link"> <span>Contact</span></a>
+                    <a href="landing.php" class="nav__item-link"> <span>Landing page</span></a>
                 </li>
                 <li class="nav__item">
                     <a href="cart.php" class="nav__item-link"> <span>Your cart</span></a>
@@ -292,61 +298,39 @@
                 <!-- end products -->  
                 <!-- Main ends -->
     </div>
-    <!-- begin footer -->
-        <footer class="footer">
-            <div class="row">
-                <div class="footer-col col-xl-3">
-                    <div class="footer_col-wrapper">
-                        <h4>company</h4>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
                         <ul>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">our services</a></li>
-                            <li><a href="#">privacy policy</a></li>
-                            <li><a href="#">affiliate program</a></li>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="footer-col col-xl-3">
-                    <div class="footer_col-wrapper">
-                        <h4>get help</h4>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
                         <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">shipping</a></li>
-                            <li><a href="#">returns</a></li>
-                            <li><a href="#">order status</a></li>
-                            <li><a href="#">payment options</a></li>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="footer-col col-xl-3">
-                    <div class="footer_col-wrapper">
-                    <h4>online shop</h4>
-                    <ul>
-                        <li><a href="#">watch</a></li>
-                        <li><a href="#">bag</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">dress</a></li>
-                    </ul>
+                    <div class="col-md-6 item text">
+                        <h3>Paika</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
                     </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
                 </div>
-                <div class="footer-col col-xl-3">
-                    <div class="footer_col-wrapper">
-                        <h4>follow us</h4>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/profile.php?id=100040740782500"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <p class="copyright">Company Name © 2018</p>
             </div>
         </footer>
-        <!-- end footer -->
     </div>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
