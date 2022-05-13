@@ -129,6 +129,7 @@
                                 <th class="col-xl-3">Option</th>
                             </tr>
                             <?php 
+                            $taxContains = 0;
                             $total = 0;
                             $grand_total = 0;
                             $cart_query = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed!');
@@ -151,7 +152,7 @@
                                     <td class="cart__info-quantity">
                                         <!-- <?php 
                                         $total = $fetch_cart['price'] * $fetch_cart['quantity'];
-                                        $grand_total += $total;
+                                        // $grand_total += $total;
                                         ?> -->  
                                     <small style="font-size: 13px"><?php echo $fetch_cart['quantity']; ?></small>
                                     </td>
@@ -162,8 +163,8 @@
                                     </td>
                                 </tr>
                             <?php 
-                            $total = $fetch_cart['price'] * $fetch_cart['quantity'] + 23;
-                            $grand_total = $total;
+                            $total = $fetch_cart['price'] * $fetch_cart['quantity']; //total of 1 kind product
+                            $taxContains = ($grand_total += $total) + 23;                            //total of all products
                         ?>
                 </form>
                     <?php
@@ -175,28 +176,28 @@
                 <div class="total__price">
                     <table class="total__price-payment">
                         <tr>
-                            <td>Quantity</td>
+                            <td>Category</td>
                             <td>
                             <?php
                                 $select_data = "SELECT * FROM cart";
-                                $select_data_query = mysqli_query($conn, $select_data);
+                                $select_data_query = (mysqli_query($conn, $select_data));
                                 if($product_count = mysqli_num_rows($select_data_query)){
                                     echo "<small>$product_count</small>";
                                 }else {
-                                    echo "<h5>Price (0 item)</h5>";
+                                    echo "<small>0</small>";
                                 }
-                        ?>
+                            ?>
                             </td>
                         </tr>
                         <tr>
                             <td>Tax</td>
-                            <td>$23.00</td>
+                            <td>$23</td>
                         </tr>
                         <tr>
                             <td>Total <span><i class="fa-solid fa-credit-card"></i></span></td>
                             <td>
                                 <?php
-                                    echo $grand_total; 
+                                    echo "<p>$ $taxContains</p>"; 
                                 ?>
                             </td>
                         </tr>

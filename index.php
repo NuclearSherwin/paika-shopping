@@ -176,7 +176,7 @@
             </div>
             <!-- begin products -->
             <div class="products" id="products">
-            <h2 id="man-products">Man clothes</h2>
+                <h2 id="man-products">Man clothes</h2>
                 <div class="row">
                     <!-- <div class="product col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="product--wrapper">

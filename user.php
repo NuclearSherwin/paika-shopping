@@ -65,10 +65,10 @@
                     <a href="user.php" class="nav__item-link"> <span>Your profile</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#man-products" class="nav__item-link"> <span>Men's</span></a>
+                    <a href="index.php" class="nav__item-link"> <span>Men's</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#women-products" class="nav__item-link"> <span>Women's</span></a>
+                    <a href="index.php" class="nav__item-link"> <span>Women's</span></a>
                 </li>
             </ul>
             </div>
