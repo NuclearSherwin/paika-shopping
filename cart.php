@@ -116,11 +116,10 @@
         <!-- Nav ends -->
 
 
-        <!-- Start container -->
+        <!-- Start container -->    
         <div class="container">
             <div class="cart-container cart-page">
                 <div class="row">
-                    
                 <form action="" method="post">
                         <table class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <tr>

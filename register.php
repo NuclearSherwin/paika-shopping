@@ -9,7 +9,7 @@ if(isset($_POST['submit'])) {
         $cPass = mysqli_real_escape_string($conn, md5($_POST['cPassword']));
         $findUser = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND phone_num = '$phoneNum'") or die('query failed');
         if(mysqli_num_rows($findUser) > 0) {
-            $message[] = 'User already exits!';
+            $message[] = 'User already exists!';
         }else { 
             if($pass != $cPass) {
                 $message[] = 'Password not match!';
